@@ -1,6 +1,8 @@
 from django.db import models  # type: ignore
 from nanodjango import Django  # type: ignore
 
+from datetime import datetime
+
 app = Django()
 
 
@@ -9,6 +11,10 @@ class CountLog(models.Model):
     # Standard Django model, registered with the admin site
     timestamp = models.DateTimeField(auto_now_add=True)
 
+
+class CountLogSchema(app.ninja.Schema):
+    # Django Ninja Pydantic schema
+    timestamp: datetime
 
 @app.route("/")
 def count(request):
@@ -23,6 +29,10 @@ def add(request):
     CountLog.objects.create()
     return {"count": CountLog.objects.count()}
 
+@app.api.get("/logs", response=list[CountLogSchema])
+def logs(request):
+    # Django Ninja API support built in
+    return CountLog.objects.order_by("-timestamp")
 
 @app.route("/slow/")
 async def slow(request):
