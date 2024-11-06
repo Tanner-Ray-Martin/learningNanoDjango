@@ -1,6 +1,6 @@
 Here’s an updated `README.md` that uses `pixi` for setup, installation, and running instructions:
 
-```markdown
+
 # learningNanoDjango
 
 A simple project to explore [NanoDjango](https://github.com/radiac/nanodjango) with example applications, including `counter` and `hello_async`. These examples are taken from the NanoDjango repository to help understand and run basic asynchronous Django-style apps.
@@ -17,7 +17,7 @@ A simple project to explore [NanoDjango](https://github.com/radiac/nanodjango) w
 
 1. Clone this repository:
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/Tanner-Ray-Martin/learningNanoDjango.git
    cd learningNanoDjango
    ```
 
